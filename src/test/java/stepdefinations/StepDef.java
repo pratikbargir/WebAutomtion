@@ -1,5 +1,7 @@
 package stepdefinations;
 import PageObject_Code.pageobject;
+import io.cucumber.java.PendingException;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -19,5 +21,30 @@ public class StepDef {
     @Then("I should see search results related to {string}")
     public void i_should_see_search_results_related_to(String product) {
         page.verifySearchResults(product);
+    }
+
+    @When("I click on the first search result")
+    public void iClickOnTheFirstSearchResult() {
+        page.clickOnFirstResult();
+        throw new PendingException();
+    }
+
+    @And("I add the product to the cart")
+    public void iAddTheProductToTheCart() {
+        page.addToCart();
+        throw new PendingException();
+    }
+
+    @And("I proceed to checkout")
+    public void iProceedToCheckout() {
+        page.proceedToCheckout();
+        throw new PendingException();
+    }
+
+    @Then("I should see the checkout page")
+    public void iShouldSeeTheCheckoutPage() {
+        page.verifyCheckoutPage();
+        page.closeBrowser();
+        throw new PendingException();
     }
 }
