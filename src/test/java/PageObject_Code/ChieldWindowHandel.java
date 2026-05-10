@@ -17,7 +17,6 @@ public class ChieldWindowHandel {
         driver.manage().window().maximize();
         driver.findElement(By.className("blinkingText")).click();
         System.out.println(driver.getTitle());
-
         /*Child Window Handling Logic*/
         Set<String> windows = driver.getWindowHandles();
         Iterator<String> it = windows.iterator();
